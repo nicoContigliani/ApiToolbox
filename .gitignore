@@ -4,3 +4,7 @@ npm-debug.log
 .nyc
 .env
 .DS_Store
+
+curl -X GET https://echo-serv.tbxnet.com/v1/secret/file/file1.csv -H 'authorization: Bearer aSuperSecretKey'
+
+curl -X GET "https://echo-serv.tbxnet.com/v1/secret/file/test3.csv" -H "accept: application/json" -H "authorization: aSuperSecretKey"

@@ -18,7 +18,7 @@ const validatorStructure = async ({ data }) => {
             if ((!(elementCSVSplit[i]).includes('.csv'))) break
             if (typeof elementCSVSplit[i + 1] !== "string" || !isNaN(parseInt(elementCSVSplit[i + 1]))) break
             if ((!typeof (parseInt(elementCSVSplit[i + 2]) === 'number'))) break
-            if (!(/^[0-9A-Fa-f]+$/.test(elementCSVSplit[i + 3]))) break
+            if (!(/^[0-9a-fA-F]{32}$/.test(elementCSVSplit[i + 3]))) break
 
 
             todoR.push(

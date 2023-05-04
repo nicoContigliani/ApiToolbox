@@ -1,4 +1,5 @@
 const validatorStructure = async ({ data }) => {
+console.log("🚀 ~ file: validation.services.js:2 ~ validatorStructure ~ data:", data)
 
     const dataSplit = data.split('\n')
 

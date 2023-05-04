@@ -10,7 +10,6 @@ const Api = async ({
     method,
     token
 }) => {
-    // console.log("🚀 ~ file: api.services.js:13 ~ params:", params)
 
     const headers = {
         'Accept': 'application/json'

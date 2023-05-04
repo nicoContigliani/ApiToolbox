@@ -1,6 +1,6 @@
 const axios = require('axios')
 require('dotenv').config()
-require('dotenv').config();
+
 
 
 const Api = async ({
@@ -10,6 +10,7 @@ const Api = async ({
     method,
     token
 }) => {
+    // console.log("🚀 ~ file: api.services.js:13 ~ params:", params)
 
     const headers = {
         'Accept': 'application/json'
@@ -17,11 +18,11 @@ const Api = async ({
     if (token) {
         headers['Authorization'] = `Bearer ${token}`;
     }
-
+    
     const urls = await
-        params != null
-        ? `${url}/${params}`
-        : `${url}`;
+    (params != null || params !== undefined)
+    ? `${url}/${params}`
+    : `${url}`;
 
     try {
         const datas = await axios({

@@ -17,13 +17,11 @@ const get = async (req, res) => {
 }
 const getId = async (req, res) => {
     const filter = req.params;
+    console.log("🚀 ~ file: fileController.js:20 ~ getId ~ filter:", filter)
     try {
         const files = await fileModel.getId()
         const filesRow = await fileDto.formatFilter(files, filter);
-        return res.status(200).json({
-            data: filesRow,
-            status: 200,
-        });
+        res.status(200).json(filesRow);
 
     } catch (error) {
         return res.status(500).send(error.message);

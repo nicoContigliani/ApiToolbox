@@ -31,43 +31,14 @@ const format = async (data) => {
     }
 
     //   console.log("🚀 ~ file: fileDto.js:8 ~ format ~ todoReturn:", todoReturn)
-    return todoReturn
-}
-const formatFilter = async (files, filter) => {
-    const { fileName } = filter
-    const todo = {
-        url: "https://echo-serv.tbxnet.com/v1/secret/file",
-        body: "",
-        params: fileName,
-        method: "get",
-        token: "aSuperSecretKey",
-    }
+     return todoReturn
 
-    const todoReturn = []
-    try {
-        const returnData = await Api(todo)
-        if (returnData?.data !== undefined) {
 
-            const si = await validatorStructure(returnData)
-
-            if (si.length != 0) {
-                todoReturn.push({
-                    "file": fileName,
-                    "lineas": si
-                })
-            }
-        }
-
-    } catch (error) {
-
-    }
-
-    return todoReturn
 }
 
 
 
 module.exports = {
     format,
-    formatFilter
+    // formatFilter
 };

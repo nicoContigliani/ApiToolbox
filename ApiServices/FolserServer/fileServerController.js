@@ -1,13 +1,11 @@
-const fileModel = require('../Folder/fileModel')
-const fileDto = require('../Folder/fileDto')
+const fileServerModel = require('../FolserServer/fileServerModel')
+const fileServerDto = require('../FolserServer/fileServerDto')
 
 const get = async (req, res) => {
     try {
-        const files = await fileModel.get()
-        const filesRow = await fileDto.format(files);
-
+        const files = await fileServerModel.get()
         res.setHeader('Content-Type', 'application/json');
-        res.status(200).json(filesRow);
+        res.status(200).json(files);
     } catch (error) {
         console.log("🚀 ~ file: fileController.js:11 ~ get ~ error:", error)
 
@@ -18,8 +16,8 @@ const get = async (req, res) => {
 const getId = async (req, res) => {
     const filter = req.params;
     try {
-        const files = await fileModel.getId()
-        const filesRow = await fileDto.formatFilter(files, filter);
+        const files = await fileServerModel.getId()
+        const filesRow = await fileServerDto.formatFilter(files,filter);
         return res.status(200).json({
             data: filesRow,
             status: 200,
